@@ -22,6 +22,16 @@ A simple docker-compose file that wraps jwilder/nginx-proxy for easy use.
 
 `docker-compose stop`
 
+## SSL Support
+To use SSL, place both the `.crt` and `.key` file for all domains you want to host in the `/certs` folder.
+The files names must be the complete virtual host + `.crt` or `.key`, for example: for example.com we need `/certs/example.com.crt` and `/certs/example.com.key`.
+Then start the nginx proxy with the following command: `docker-compose -f docker-compose-ssl.yml up -d`.
+
+## Letsencrypt support (automated SSL)
+To use Letsencrypt for automated SSL, all proxied containers must have these 3 variables set: `VIRTUAL_HOST, LETSENCRYPT_HOST and LETSENCRYPT_EMAIL`.
+Both the virtual host and the letsencrypt host must match and must be publicly reachable.
+Then start the nginx proxy with the following command: `docker-compose -f docker-compose-letsencrypt.yml up -d`.
+
 ## FAQ
 
 ##### I get a 503 error.
