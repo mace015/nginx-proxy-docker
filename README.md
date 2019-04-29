@@ -36,7 +36,3 @@ Then start the nginx proxy with the following command: `docker-compose -f docker
 
 ##### I get a 503 error.
 Make sure your nginx-proxy container is connected to the same network as the container you try to proxy to, see the installation instructions for more information.
-
-## Todo
-
-- Add automatic Let's Encrypt certificate generation for production environments.
