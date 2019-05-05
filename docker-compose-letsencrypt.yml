@@ -2,15 +2,17 @@ version: '3.7'
 
 services:
     nginx-proxy:
-        image: jwilder/nginx-proxy
+        image: jwilder/nginx-proxy:alpine
         container_name: nginx-proxy
         ports:
             - "80:80"
             - "443:443"
+        environment:
+            - ENABLE_IPV6=true
         volumes:
             - ./certs:/etc/nginx/certs
-            - /etc/nginx/vhost.d
-            - /usr/share/nginx/html
+            - ./temp/nginx/vhost:/etc/nginx/vhost.d
+            - ./temp/nginx/html:/usr/share/nginx/html
             - /var/run/docker.sock:/tmp/docker.sock:ro
         restart: always
     nginx-proxy-letsencrypt:
@@ -18,8 +20,8 @@ services:
         container_name: nginx-proxy-letsencrypt
         volumes:
             - ./certs:/etc/nginx/certs
-            - /etc/nginx/vhost.d
-            - /usr/share/nginx/html
+            - ./temp/nginx/vhost:/etc/nginx/vhost.d
+            - ./temp/nginx/html:/usr/share/nginx/html
             - /var/run/docker.sock:/var/run/docker.sock:ro
         environment:
             - NGINX_PROXY_CONTAINER=nginx-proxy

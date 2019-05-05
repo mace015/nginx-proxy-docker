@@ -2,10 +2,13 @@ version: '3.7'
 
 services:
     nginx-proxy:
-        image: jwilder/nginx-proxy
+        image: jwilder/nginx-proxy:alpine
         container_name: nginx-proxy
         ports:
             - "80:80"
+            - "443:443"
+        environment:
+            - ENABLE_IPV6=true
         volumes:
             - /var/run/docker.sock:/tmp/docker.sock:ro
         restart: always
