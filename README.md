@@ -36,3 +36,6 @@ Then start the nginx proxy with the following command: `docker-compose -f docker
 
 ##### I get a 503 error.
 Make sure your nginx-proxy container is connected to the same network as the container you try to proxy to, see the installation instructions for more information.
+
+##### When using SSL or Letsencrypt the proxy refuses connections on port 443/HTTPS.
+This is due to [this issue](https://github.com/jwilder/nginx-proxy/issues/317), to remedy this, remove the nginx-proxy container (`docker rm nginx-proxy`) and restart the proxy.
