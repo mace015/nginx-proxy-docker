@@ -11,4 +11,10 @@ services:
             - ENABLE_IPV6=true
         volumes:
             - /var/run/docker.sock:/tmp/docker.sock:ro
+        networks:
+            - example-network
         restart: always
+
+networks:
+    example-network:
+        external: true

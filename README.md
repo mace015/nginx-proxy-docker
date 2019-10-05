@@ -5,7 +5,7 @@ A simple docker-compose file that wraps jwilder/nginx-proxy for easy use.
 
 - Clone this project: `git clone git@github.com:mace015/nginx-proxy-docker.git`.
 - Start the proxy: `docker-compose up`.
-- If the applications you want to proxy run on their own docker network, make sure to add those networks to the `nginx-proxy` container: `docker network connect [network name here] nginx-proxy`.
+- If the applications you want to proxy run on their own docker network, make sure to add those networks to the `nginx-proxy` container (`docker network connect [network name here] nginx-proxy`) and add those networks to the docker-compose file you're using so the `nginx-proxy` container automatically connects to those networks the next time it starts.
 - Now start any container you wish to be proxied with the `VIRTUAL_HOST` env var, for more information please refer to [this documentation](https://github.com/jwilder/nginx-proxy).
 
 ## Usage

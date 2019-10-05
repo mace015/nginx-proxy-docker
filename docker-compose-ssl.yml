@@ -11,4 +11,10 @@ services:
         volumes:
             - ./certs:/etc/nginx/certs
             - /var/run/docker.sock:/tmp/docker.sock:ro
+        networks:
+            - example-network
         restart: always
+
+networks:
+    example-network:
+        external: true
