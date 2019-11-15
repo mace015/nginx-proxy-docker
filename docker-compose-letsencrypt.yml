@@ -11,6 +11,7 @@ services:
             - ENABLE_IPV6=true
         volumes:
             - ./certs:/etc/nginx/certs
+            - ./custom_nginx_config.conf:/etc/nginx/conf.d/custom_nginx_config.conf
             - ./temp/nginx/vhost:/etc/nginx/vhost.d
             - ./temp/nginx/html:/usr/share/nginx/html
             - /var/run/docker.sock:/tmp/docker.sock:ro

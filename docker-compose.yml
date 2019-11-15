@@ -10,6 +10,7 @@ services:
         environment:
             - ENABLE_IPV6=true
         volumes:
+            - ./custom_nginx_config.conf:/etc/nginx/conf.d/custom_nginx_config.conf
             - /var/run/docker.sock:/tmp/docker.sock:ro
         networks:
             - example-network

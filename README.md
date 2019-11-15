@@ -32,6 +32,9 @@ To use Letsencrypt for automated SSL, all proxied containers must have these 3 v
 Both the virtual host and the letsencrypt host must match and must be publicly reachable.
 Then start the nginx proxy with the following command: `docker-compose -f docker-compose-letsencrypt.yml up -d`.
 
+## Custom configuration
+To set any custom nginx configuration, add your custom configuration to the custom_nginx_config.conf and restart the container.
+
 ## FAQ
 
 ##### I get a 503 error.
