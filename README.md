@@ -33,7 +33,7 @@ Both the virtual host and the letsencrypt host must match and must be publicly r
 Then start the nginx proxy with the following command: `docker-compose -f docker-compose-letsencrypt.yml up -d`.
 
 ## Custom configuration
-To set any custom nginx configuration, add your custom configuration to the custom_nginx_config.conf and restart the container.
+To set any custom nginx configuration, add your custom configuration to `custom_nginx_config.conf` and restart the container.
 
 ## FAQ
 
